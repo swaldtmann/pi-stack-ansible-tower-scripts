@@ -7,7 +7,6 @@
     command: sleep 5 && shutdown -r now "Reboot triggered by Ansible script"
     async: 1
     poll: 0
-    gather_facts: False
     ignore_errors: true
   
   - name: Wait for machine to restart
