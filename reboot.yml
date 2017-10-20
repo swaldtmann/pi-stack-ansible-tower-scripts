@@ -4,7 +4,7 @@
   gather_facts: False
   tasks:
   - name: Reboot
-    command: sleep 5 && shutdown -r now "Reboot triggered by Ansible script"
+    command: shutdown -r now "Reboot triggered by Ansible script"
     async: 1
     poll: 0
     ignore_errors: true
