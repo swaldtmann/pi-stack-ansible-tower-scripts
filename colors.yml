@@ -4,4 +4,4 @@
   gather_facts: False
   tasks:
     - name: Colors {{ red }} {{ green }} {{ blue }}
-      command: "/usr/bin/colors {{ red }} {{ green }} {{ blue }}"
+      command: "/usr/bin/colors {{ red }} {{ green }} {{ blue }} -d {{ leds_color_duration_timer }}"

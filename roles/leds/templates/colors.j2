@@ -15,6 +15,8 @@ import RPi.GPIO as GPIO
 parser = argparse.ArgumentParser(description = 'Light up the world!')
 parser.add_argument('rgb', metavar='0-255', type=int, nargs=3,
                    help='Red, Green, and Blue color values (0-255).')
+parser.add_argument("-d", "--duration_time", type=int, default={{ leds_color_duration_timer }},
+                   help="Set on duration.")
 args = parser.parse_args()
 
 # LED pin mapping.
@@ -48,4 +50,6 @@ def setColor(rgb = []):
 
 setColor(args.rgb)
 
-#GPIO.cleanup()
+time.sleep(args.duration_time)
+
+GPIO.cleanup()
