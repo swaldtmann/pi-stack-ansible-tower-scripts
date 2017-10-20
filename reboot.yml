@@ -1,7 +1,15 @@
 ---
-- name: Reboot
+- name: Restart machine
   hosts: all
+  command: sleep 5 && shutdown -r now "Reboot triggered by Ansible script"
+  async: 1
+  poll: 0
   gather_facts: False
-  tasks:
-    - name: reboot
-      command: "/sbin/shutdown -r now"
+  ignore_errors: true
+
+- name: Wait for machine to restart
+  hosts: all
+  wait_for_connection:
+    args:
+      delay: 15
+      timeout: 120
