@@ -1,0 +1,7 @@
+---
+- name: LED Colors
+  hosts: all
+  gather_facts: False
+  tasks:
+    - name: Colors {{ red }} {{ green }} {{ blue }}
+      command: "/usr/bin/colors {{ red }} {{ green }} {{ blue }}"
