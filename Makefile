@@ -1,6 +1,6 @@
 # Makefile for pi-stack-ansible-tower-scripts
 
-.PHONY: dump dumpvars ping reboot
+.PHONY: dump dumpvars ping reboot halt
 
 dump:
 	ansible -i inventory -m setup all
@@ -13,3 +13,6 @@ ping:
 
 reboot:
 	 ansible-playbook -i inventory -b reboot.yml
+
+halt:
+	 ansible-playbook -i inventory -b halt.yml
