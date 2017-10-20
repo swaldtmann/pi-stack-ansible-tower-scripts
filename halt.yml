@@ -3,5 +3,8 @@
   hosts: all
   gather_facts: False
   tasks:
-    - name: Halt
-      command: "/sbin/shutdown -h now"
+  - name: Halt
+    shell: sleep 1 && shutdown -h now
+    async: 2
+    poll: 0
+    ignore_errors: true

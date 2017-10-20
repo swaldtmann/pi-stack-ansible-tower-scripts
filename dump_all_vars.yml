@@ -1,0 +1,13 @@
+---
+- name: Dump all vars
+  hosts: all
+  tasks:
+    - name: Dump all vars
+      template:
+        src: templates/dumpall.j2
+        dest: /tmp/ansible.all
+    - name: fetch files
+      fetch: 
+        src: /tmp/ansible.all
+        dest: /tmp/fetched/{{ inventory_hostname }}-ansible.all
+        flat: yes
