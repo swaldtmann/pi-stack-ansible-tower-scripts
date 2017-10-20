@@ -5,7 +5,7 @@
   tasks:
   - name: Reboot
     command: sleep 1 && shutdown -r now "Reboot triggered by Ansible script"
-    async: 2
+    async: 4
     poll: 0
     ignore_errors: true
   
