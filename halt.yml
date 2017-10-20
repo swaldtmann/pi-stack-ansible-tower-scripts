@@ -1,0 +1,7 @@
+---
+- name: Halt
+  hosts: all
+  gather_facts: False
+  tasks:
+    - name: Halt
+      command: "/sbin/shutdown -h now"

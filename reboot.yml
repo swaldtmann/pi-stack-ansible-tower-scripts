@@ -1,0 +1,7 @@
+---
+- name: Reboot
+  hosts: all
+  gather_facts: False
+  tasks:
+    - name: reboot
+      command: "/sbin/shutdown -r now"
