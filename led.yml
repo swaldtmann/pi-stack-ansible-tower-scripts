@@ -1,0 +1,7 @@
+---
+- name: Deploy LED Scripts
+#  hosts: "{{ target }}"
+  hosts: all
+  become: true
+  roles:
+    - { role: leds }

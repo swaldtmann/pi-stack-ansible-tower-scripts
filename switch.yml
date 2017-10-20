@@ -1,0 +1,7 @@
+---
+- name: Switch LED 
+  hosts: all
+  gather_facts: False
+  tasks:
+    - name: Switch {{ status }}
+      command: "/usr/bin/rgb {{ status }}"

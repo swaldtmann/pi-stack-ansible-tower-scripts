@@ -1,0 +1,7 @@
+---
+- name: Switch LED off
+  hosts: all
+  gather_facts: False
+  tasks:
+    - name: Switch off
+      command: "/usr/bin/rgb off"
