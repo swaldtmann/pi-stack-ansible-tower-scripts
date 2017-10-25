@@ -1,5 +1,21 @@
 ---
 # handlers file for wifi-access
+
+# Not working, when wlan0 was never configured - so we reboot!
 - name: restart wifi
   become: yes
-  shell: sudo ifdown wlan0 && sudo ifup wlan0
+  shell: ifdown wlan0 && ifup wlan0
+
+- name: reboot pi
+  become: yes
+  shell: sleep 1 && shutdown -r now
+  async: 2
+  poll: 0
+  ignore_errors: true
+  notify: Wait for reboot
+
+- name: Wait for reboot
+  wait_for_connection:
+    args:
+      delay: 15
+      timeout: 120

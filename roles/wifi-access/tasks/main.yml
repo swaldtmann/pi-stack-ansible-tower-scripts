@@ -1,4 +1,8 @@
 ---
+# http://qcktech.blogspot.de/2012/08/raspberry-pi-as-router.html
+# http://www.gehaxelt.in/blog/raspberryp-als-router/
+# https://www.raspberrypi.org/forums/viewtopic.php?t=132674
+
 # tasks file for wifi-access
 - include: wifi_config.yml
 - include: dnsmasq.yml

@@ -1,1 +1,9 @@
 ---
+- name: Allow ipv4 forwarding.
+  sysctl:
+    name: net.ipv4.ip_forward
+    value: 1
+    state: present
+    sysctl_file: /etc/sysctl.d/10-ipv4-forward.conf
+    ignoreerrors: yes
+    reload: yes

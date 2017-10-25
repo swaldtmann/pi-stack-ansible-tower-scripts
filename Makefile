@@ -1,6 +1,10 @@
 # Makefile for pi-stack-ansible-tower-scripts
 
-.PHONY: dump dumpvars ping reboot halt off red green blue
+.PHONY: evdump dumpvars ping reboot halt off red green blue wifi
+
+
+ev:
+	ansible-vault edit group_vars/all/vault
 
 dump:
 	ansible -i inventory -m setup all
@@ -28,4 +32,7 @@ green:
 
 blue:
 	ansible-playbook -i inventory -b -k switch.yml --extra-vars "status=blue"
+	
+wifi:
+	ansible-playbook -i inventory -b wifi_gateway.yml
 
