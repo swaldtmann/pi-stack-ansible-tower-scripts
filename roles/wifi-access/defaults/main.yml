@@ -1,0 +1,19 @@
+---
+# defaults file for wifi-access
+wifi_acceess_wifi_interface: "wlan0"
+wifi_acceess_wifi_ssid: "ssid"
+wifi_acceess_wifi_psk: "secret"
+wifi_acceess_wifi_key_mgmt: "WPA-PSK"
+
+wifi_acceess_eth_interface: "eth0"
+wifi_acceess_eth_address: "10.2.78.1"
+wifi_acceess_eth_netmask: "255.255.255.0"
+wifi_acceess_eth_network: "10.2.78.0"
+wifi_acceess_eth_broadcast: "10.2.78.255"
+
+wifi_acceess_dnsmasq_interface: "{{ wifi_acceess_eth_interface }}"
+wifi_acceess_dnsmasq_listen_address: "{{ wifi_acceess_eth_address }}"
+wifi_acceess_dnsmasq_dns_server: "8.8.8.8"
+wifi_acceess_dnsmasq_dhcp_range_start: "10.2.78.50"
+wifi_acceess_dnsmasq_dhcp_range_end: "10.2.78.89"
+wifi_acceess_dnsmasq_dhcp_lease_time: "12h"

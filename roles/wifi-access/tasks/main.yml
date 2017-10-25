@@ -1,0 +1,6 @@
+---
+# tasks file for wifi-access
+- include: wpa_config.yml
+- include: dnsmasq.yml
+- include: ipv4_forwarding.yml
+- include: routing_nat.yml
