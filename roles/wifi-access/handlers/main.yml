@@ -1,2 +1,5 @@
 ---
 # handlers file for wifi-access
+- name: restart wifi
+  become: yes
+  shell: sudo ifdown wlan0 && sudo ifup wlan0

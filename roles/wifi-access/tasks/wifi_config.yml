@@ -1,0 +1,21 @@
+---
+- name: Configure /etc/network/interfaces.
+  blockinfile:
+    path: "/etc/network/interfaces"
+    marker: <!-- {mark} Adding wifi configuration -->
+    block: |
+      allow-hotplug {{ wifi_acceess_wifi_interface }}
+      iface {{ wifi_acceess_wifi_interface }} inet manual
+          wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
+    state: present
+    backup: yes
+  notify: restart wifi
+
+- name: Create wpa_supplicant.conf.
+  template:
+    src: "wpa_supplicant.conf.j2"
+    dest: "/etc/wpa_supplicant/wpa_supplicant.conf"
+    owner: root
+    group: root
+    mode: 0600
+  notify: restart wifi

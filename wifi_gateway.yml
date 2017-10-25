@@ -1,0 +1,7 @@
+---
+- name: Use Role wifi-access
+#  hosts: "{{ target }}"
+  hosts: wifi-gateway
+  become: true
+  roles:
+    - { role: wifi-access }
