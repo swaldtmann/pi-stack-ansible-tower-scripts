@@ -16,4 +16,9 @@
     group: root
     mode: 0644
   notify: reboot pi
-    
+
+- name: Remove default gateway from /etc/dhcpcd.conf
+  replace:
+    dest: /etc/dhcpcd.conf
+    regexp: '^static routers=10.2.78.1'
+    replace: '#static routers=10.2.78.1'

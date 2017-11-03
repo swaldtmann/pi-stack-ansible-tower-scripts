@@ -1,1 +1,8 @@
 ---
+- name: Ensure iptables-persistent is installed.
+  apt: name=iptables-persistent state=present
+
+- name: Configure NAT
+  command: iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE 
+  become: yes
+  notify: save iptables

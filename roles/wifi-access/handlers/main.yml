@@ -19,3 +19,11 @@
     args:
       delay: 15
       timeout: 120
+
+- name: restart dnsmasq
+  service: name=dnsmasq state=restarted
+  become: true
+
+- name: save iptables
+  shell: /sbin/iptables-save > /etc/iptables/rules.v4
+  become: yes

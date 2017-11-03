@@ -1,0 +1,10 @@
+# {{ ansible_managed }}
+
+interface={{ wifi_acceess_eth_interface }}      # Use interface {{ wifi_acceess_eth_interface }}   
+listen-address={{ wifi_acceess_eth_address }} # Explicitly specify the address to listen on  
+bind-interfaces      # Bind to the interface to make sure we aren't sending things elsewhere  
+server={{ wifi_acceess_dnsmasq_dns_server }}       # Forward DNS requests  
+domain-needed        # Don't forward short names  
+bogus-priv           # Never forward addresses in the non-routed address spaces.
+dhcp-range={{ wifi_acceess_dnsmasq_dhcp_range_start }},{{ wifi_acceess_dnsmasq_dhcp_range_end }},{{ wifi_acceess_dnsmasq_dhcp_lease_time }}  
+  
